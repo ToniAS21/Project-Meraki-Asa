@@ -111,11 +111,11 @@ st.plotly_chart(fig_bar)
 st.write("### 3. Bagaimana Persebaran Total Penjualan dalam Hari maupun Jam Tertentu?")
 
 # A. Persiapan Data
-persebaran_day_hour = df.groupby(["Day of Week","Hour"])['Total'].sum().reset_index()
+persebaran_day_hour = df.groupby(["Day","Hour"])['Total'].sum().reset_index()
 
 # B. Visualisasi 
 fig_heatmap = px.density_heatmap(persebaran_day_hour,
-                   x="Day of Week",
+                   x="Day",
                    y="Hour",
                    z="Total",
                    title="Distribution of Total Transaction Value in Every Hour and Day",
